@@ -71,7 +71,7 @@ AI, LLM & Агенты      :: Model Context Protocol (MCP), Tool Calling, OpenS
 
 - **Telegram:** [@melneichuk](https://t.me/melneichuk)
 - **Email:** [andreimelneichuk@yandex.ru](mailto:andreimelneichuk@yandex.ru)
-- **Резюме:** Доступно по запросу или на [Хабр Карьере / HeadHunter]
+- **Резюме:** [HeadHunter](https://perm.hh.ru/resume/6baf401fff0d4df01e0039ed1f63707073616c)
 
 ---
 <div align="center">
