@@ -6,7 +6,7 @@
 
 [![Telegram](https://img.shields.io/badge/Telegram-@melneichuk-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/melneichuk)
 [![Email](https://img.shields.io/badge/Email-andreimelneichuk@yandex.ru-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:andreimelneichuk@yandex.ru)
-[![Location](https://img.shields.io/badge/Location-Perm%20%7C%20St.%20Petersburg%20%7C%20Remote-blue?style=flat-square)](https://t.me/melneichuk)
+[![Location](https://img.shields.io/badge/Location-%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%20%C2%B7%20%D1%80%D0%B5%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82--%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%20%C2%B7%20Remote-blue?style=flat-square)](https://t.me/melneichuk)
 [![Education](https://img.shields.io/badge/Education-PSNRU%20Computer%20Security-informational?style=flat-square)](https://psu.ru)
 
 <p align="center">
@@ -28,10 +28,10 @@
 ### 🛠 Технологический стек
 
 ```
-AI, LLM & Агенты      :: Model Context Protocol (MCP), Tool Calling, OpenSearch (RAG), Langfuse, MLflow, LLM-as-a-Judge
-Модели & NLP          :: Transformers, BERT Fine-Tuning, Zero-Shot NLI, SpaCy, Prompt Engineering, Label Studio
-Бэкенд & Инженерия    :: Python (Asyncio), FastAPI, Flask, Apache Kafka, PostgreSQL, SQLAlchemy, Redis, Docker, Pytest
-Инфраструктура & CI/CD:: GitLab CI/CD, Linux, Git, REST API, базовый C++
+LLM & Агенты   :: MCP, Tool Calling, LangChain / LangGraph, OpenSearch (RAG), vLLM, Langfuse, MLflow, LLM-as-a-Judge
+Модели & NLP   :: PyTorch, Transformers, BERT fine-tuning, Zero-Shot NLI, SpaCy, Label Studio
+Бэкенд         :: Python (asyncio), FastAPI, Flask, Apache Kafka, PostgreSQL, SQLAlchemy, Redis, Pytest
+Инфраструктура :: Docker, GitLab CI/CD, Linux, C++ (базовый)
 ```
 
 ---
@@ -41,26 +41,27 @@ AI, LLM & Агенты      :: Model Context Protocol (MCP), Tool Calling, OpenS
 <table>
   <tr>
     <td width="50%">
-      <h3>🔌 <a href="https://github.com/andreimelneichuk">MCP Secure Server (RBAC & Auth)</a></h3>
+      <h3>🔌 <a href="https://github.com/andreimelneichuk/mcp-secure-server">MCP Secure Server (RBAC & Auth)</a></h3>
       <p>Референсная реализация сервера <b>Model Context Protocol (MCP)</b> с ролевой моделью доступа (RBAC) и OAuth-аутентификацией для безопасного подключения инструментов к корпоративным источникам данных.</p>
       <p><code>Python</code> <code>MCP</code> <code>FastAPI</code> <code>OAuth</code> <code>Security</code></p>
     </td>
     <td width="50%">
-      <h3>🔍 <a href="https://github.com/andreimelneichuk">OpenSearch Agentic RAG</a></h3>
-      <p>Интеграция полнотекстового и семантического поиска в OpenSearch в виде MCP-инструмента для AI-агентов; фоновая периодическая индексация базы знаний через GitLab CI.</p>
+      <h3>🔍 OpenSearch Agentic RAG</h3>
+      <p><i>Коммерческий проект (код под NDA)</i></p>
+      <p>Гибридный (полнотекстовый + семантический) поиск в OpenSearch, подключённый к AI-агенту как MCP-инструмент; фоновая периодическая индексация базы знаний через GitLab CI.</p>
       <p><code>OpenSearch</code> <code>MCP</code> <code>Python</code> <code>GitLab CI</code> <code>RAG</code></p>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <h3>📑 <a href="https://github.com/andreimelneichuk">BERT Document Classifier</a></h3>
-      <p>Дообучение энкодера архитектуры <b>BERT</b> на размеченном корпусе из 28 тыс. архивных документов (Label Studio) для автоматической классификации типов файлов с метрикой <b>F1-score = 0.95</b>.</p>
-      <p><code>PyTorch</code> <code>Transformers</code> <code>BERT</code> <code>Label Studio</code></p>
+      <h3>📑 <a href="https://github.com/andreimelneichuk/nlp-pipeline-bert">BERT Document Classifier</a></h3>
+      <p>Fine-tuning <b>ruBERT</b> для многоклассовой классификации документов (балансировка классов через <code>WeightedRandomSampler</code>, <b>F1 ~0.95</b>) и динамическая <b>INT8-квантизация</b>: модель меньше ~4x, инференс на CPU быстрее в 2–3 раза практически без потери качества.</p>
+      <p><code>PyTorch</code> <code>Transformers</code> <code>ruBERT</code> <code>INT8</code></p>
     </td>
     <td width="50%">
-      <h3>🧪 <a href="https://github.com/andreimelneichuk">Tool Calling Stability Experiments</a></h3>
-      <p>Экспериментальное исследование ошибок и галлюцинаций LLM при вызове инструментов по строгим JSON-схемам; тестирование Few-Shot промптинга с логированием в <b>MLflow</b>.</p>
-      <p><code>MLflow</code> <code>Prompt Engineering</code> <code>Tool Use</code> <code>Python</code></p>
+      <h3>🧪 <a href="https://github.com/andreimelneichuk/AgentLab">Tool Calling Stability Experiments</a></h3>
+      <p>Бенчмарк архитектур агента с <b>MCP</b>: baseline-цикл (LLM → Tool → LLM) и 17 экспериментов — валидация и нормализация аргументов тулов, детерминированная маршрутизация, сжатие контекста, Graph-RAG, мультиагентная проверка ответов. Прогон на mock MCP-серверах, оценка через <b>LLM-as-a-Judge</b> (Solve Rate, Safety, latency).</p>
+      <p><code>Python</code> <code>MCP</code> <code>Tool Calling</code> <code>LLM-as-a-Judge</code></p>
     </td>
   </tr>
 </table>
@@ -72,8 +73,3 @@ AI, LLM & Агенты      :: Model Context Protocol (MCP), Tool Calling, OpenS
 - **Telegram:** [@melneichuk](https://t.me/melneichuk)
 - **Email:** [andreimelneichuk@yandex.ru](mailto:andreimelneichuk@yandex.ru)
 - **Резюме:** [HeadHunter](https://perm.hh.ru/resume/6baf401fff0d4df01e0039ed1f63707073616c)
-
----
-<div align="center">
-  <sub>Профиль оформлен в соответствии с актуальным инженерным стеком • 2026</sub>
-</div>
