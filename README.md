@@ -6,8 +6,8 @@
 
 [![Telegram](https://img.shields.io/badge/Telegram-@melneichuk-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/melneichuk)
 [![Email](https://img.shields.io/badge/Email-andreimelneichuk@yandex.ru-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:andreimelneichuk@yandex.ru)
-[![Location](https://img.shields.io/badge/Location-%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%20%C2%B7%20%D1%80%D0%B5%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82--%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%20%C2%B7%20Remote-blue?style=flat-square)](https://t.me/melneichuk)
-[![Education](https://img.shields.io/badge/Education-PSNRU%20Computer%20Security-informational?style=flat-square)](https://psu.ru)
+![Location](https://img.shields.io/badge/Location-%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%20%C2%B7%20%D1%80%D0%B5%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82--%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%20%C2%B7%20Remote-blue?style=flat-square)
+[![Education](https://img.shields.io/badge/Education-%D0%9F%D0%93%D0%9D%D0%98%D0%A3%20Computer%20Security-informational?style=flat-square)](https://psu.ru)
 
 <p align="center">
   Разрабатываю и внедряю агентные архитектуры (<b>Model Context Protocol, Tool Calling</b>), поисковые RAG-контуры на базе <b>OpenSearch</b> и асинхронные бэкенд-сервисы на <b>Python, FastAPI и Apache Kafka</b>.
@@ -19,7 +19,7 @@
 
 ### 👨‍💻 Обо мне
 
-- 🏢 **AI / LLM Developer в GreenData:** Разрабатываю AI-ассистента GreenBox — интеграция внешних API через **Model Context Protocol (MCP)**, прямой семантический и текстовый поиск в **OpenSearch**, асинхронная сервисная шина на **Apache Kafka**, оценка качества ответов (**LLM-as-a-Judge**, Langfuse) и пре-фильтрация трафика.
+- 🏢 **AI / LLM Developer, корпоративный AI-ассистент (коммерческий проект):** интеграция внешних API через **Model Context Protocol (MCP)**, прямой семантический и текстовый поиск в **OpenSearch**, асинхронная сервисная шина на **Apache Kafka**, оценка качества ответов (**LLM-as-a-Judge**, Langfuse) и пре-фильтрация трафика.
 - 🧪 **Data & Model Evaluation в Яндекс Крауд (2023–2024):** Сравнительный аудит (Side-by-Side) качества ответов **YandexGPT** и поисковой выдачи, разметка галлюцинаций и формирование датасетов.
 - 🎓 **Образование:** ПГНИУ (Институт компьютерных наук и технологий), специальность «Компьютерная безопасность» (Выпуск 2025).
 
@@ -55,12 +55,12 @@ LLM & Агенты   :: MCP, Tool Calling, LangChain / LangGraph, OpenSearch (RA
   <tr>
     <td width="50%">
       <h3>📑 <a href="https://github.com/andreimelneichuk/nlp-pipeline-bert">BERT Document Classifier</a></h3>
-      <p>Fine-tuning <b>ruBERT</b> для многоклассовой классификации документов (балансировка классов через <code>WeightedRandomSampler</code>, <b>F1 ~0.95</b>) и динамическая <b>INT8-квантизация</b>: модель меньше ~4x, инференс на CPU быстрее в 2–3 раза практически без потери качества.</p>
+      <p>Пайплайн классификации текстов документации: краулер, разметка через LLM, очистка данных, fine-tuning <b>ruBERT</b> (стратифицированный сплит, <code>WeightedRandomSampler</code>, ранняя остановка по weighted F1) и динамическая <b>INT8-квантизация</b> со сравнением FP32 vs INT8 по размеру, времени инференса и F1. Плюс учебные эксперименты: RNN/GRU на AG News (accuracy до 0.909) и CatBoost-регрессия.</p>
       <p><code>PyTorch</code> <code>Transformers</code> <code>ruBERT</code> <code>INT8</code></p>
     </td>
     <td width="50%">
       <h3>🧪 <a href="https://github.com/andreimelneichuk/AgentLab">Tool Calling Stability Experiments</a></h3>
-      <p>Бенчмарк архитектур агента с <b>MCP</b>: baseline-цикл (LLM → Tool → LLM) и 17 экспериментов — валидация и нормализация аргументов тулов, детерминированная маршрутизация, сжатие контекста, Graph-RAG, мультиагентная проверка ответов. Прогон на mock MCP-серверах, оценка через <b>LLM-as-a-Judge</b> (Solve Rate, Safety, latency).</p>
+      <p>Бенчмарк архитектур агента с <b>MCP</b>: baseline-цикл (LLM → Tool → LLM) и 15 экспериментальных доработок: валидация и нормализация аргументов тулов, детерминированная маршрутизация, сжатие контекста, Graph-RAG, мультиагентная проверка ответов. Прогон на mock MCP-серверах, оценка через <b>LLM-as-a-Judge</b> (Solve Rate, Safety, latency) на наборе из 40 сценариев, с CI на GitHub Actions.</p>
       <p><code>Python</code> <code>MCP</code> <code>Tool Calling</code> <code>LLM-as-a-Judge</code></p>
     </td>
   </tr>
